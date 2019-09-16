@@ -1,0 +1,2 @@
+# Equilatera
+Proyecto Equilatera
