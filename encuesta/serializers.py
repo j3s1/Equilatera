@@ -7,11 +7,13 @@ class PreguntasSerializer(serializers.ModelSerializer):
         fields = ('descripcion', 'id', 'tipo', 'activo', 'opciones')
 
 class RespuestasSerializer(serializers.ModelSerializer):
-    preguntas = PreguntasSerializer()
-    preguntasId = serializers.PrimaryKeyRelatedField(read_only=True)
+    preguntaR = serializers.PrimaryKeyRelatedField(read_only=True)
+    preguntas = PreguntasSerializer(read_only = True)
+    #preguntasId = serializers.PrimaryKeyRelatedField(read_only=True)
     class Meta:
         model = Respuestas
-        fields = ('descripcion', 'id', 'preguntasId','preguntas')
+        fields = ('descripcion', 'id', 'preguntaR', 'preguntas')
+    #    fields = ('descripcion', 'id', 'preguntasId','preguntas')
 
     def create(self, validated_data):
         return Respuestas(**validated_data)
