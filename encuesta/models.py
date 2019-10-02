@@ -16,7 +16,7 @@ class Preguntas(models.Model):
     fecha = models.DateTimeField(auto_now_add=True)
     tipo = models.CharField(max_length=50, choices=opcionesTipo)
     opcionesTipoUsuario =(('rrhh', 'rrhh'), ('empleado', 'empleado'))
-    tipoDeUsuario == models.CharField(max_length=50, choices=opcionesTipoUsuario)  
+    tipo_Usuario = models.CharField(max_length=50, choices=opcionesTipoUsuario)  
     opciones = models.TextField(blank=True)
     activo = models.BooleanField()
 
