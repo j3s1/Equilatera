@@ -6,24 +6,23 @@ class PreguntasSerializer(serializers.ModelSerializer):
         model = Preguntas
         fields = ('descripcion', 'id', 'tipo', 'activo', 'opciones')
 
-class RespuestasSerializer(serializers.ModelSerializer):
-    preguntaR = serializers.PrimaryKeyRelatedField(read_only=True)
-    preguntas = PreguntasSerializer(many=True,read_only = True)
-    #preguntasId = serializers.PrimaryKeyRelatedField(read_only=True)
-    class Meta:
-        model = Respuestas
-        fields = ('descripcion', 'id', 'preguntaR','preguntas')
-    #    fields = ('descripcion', 'id', 'preguntasId','preguntas')
-
-    def create(self, validated_data):
-        return Respuestas(**validated_data)
 
 class OrganizacionesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organizaciones
-        fields = ('nombre','id','uuid','cantidad_empleado')
+        fields = ('nombre','id','uuid', 'cantidad_empleado')
 
-   
+class RespuestasSerializer(serializers.ModelSerializer):
+    preguntaR = serializers.PrimaryKeyRelatedField(read_only=True)
+    preguntas = PreguntasSerializer(many=True,read_only = True)
+    organizacionR = serializers.PrimaryKeyRelatedField(read_only=True)
+    organizaciones = OrganizacionesSerializer(many=False,read_only = True)
+    class Meta:
+        model = Respuestas
+        fields = ('descripcion', 'id', 'preguntaR','preguntas', 'organizacionR', 'organizaciones')
+
+    def create(self, validated_data):
+        return Respuestas(**validated_data)
 
 """class OrganizacionSerializer(serializers.ModelSerializer):
     # uuid = serializers.CharField(read_only=True)

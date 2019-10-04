@@ -24,4 +24,5 @@ class Respuestas(models.Model):
     descripcion=models.TextField(max_length=500)
     fecha = models.DateTimeField(auto_now_add=True)
     pregunta = models.ForeignKey(Preguntas, on_delete=models.CASCADE, related_name='preguntaR')
+    organizacion = models.ForeignKey(Organizaciones, on_delete=models.CASCADE,related_name='organizacionR')
 
