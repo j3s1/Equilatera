@@ -1,9 +1,10 @@
 from django.urls import path, include
 from rest_framework import routers
 from . import views
-from encuesta.views import RespuestasViewSet, OrganizacionesViewSet
+from encuesta.views import RespuestasViewSet, OrganizacionesViewSet, PreguntasViewSet
 
 router = routers.SimpleRouter()
+router.register(r'preguntas', PreguntasViewSet)
 router.register(r'respuestas', RespuestasViewSet)
 router.register(r'organizacion', OrganizacionesViewSet)
 

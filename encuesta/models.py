@@ -18,7 +18,7 @@ class Preguntas(models.Model):
     opcionesTipoUsuario =(('rrhh', 'rrhh'), ('empleado', 'empleado'))
     tipo_Usuario = models.CharField(max_length=50, choices=opcionesTipoUsuario)  
     opciones = models.TextField(blank=True)
-    activo = models.BooleanField()
+    activo = models.BooleanField(default=True)
 
 class Respuestas(models.Model):
     descripcion=models.TextField(max_length=500)

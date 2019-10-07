@@ -4,7 +4,7 @@ from rest_framework import serializers
 class PreguntasSerializer(serializers.ModelSerializer):
     class Meta:
         model = Preguntas
-        fields = ('descripcion', 'id', 'tipo', 'activo', 'opciones')
+        fields = ('descripcion', 'id', 'tipo', 'opciones', 'tipo_Usuario')
 
 
 class OrganizacionesSerializer(serializers.ModelSerializer):
@@ -21,8 +21,8 @@ class RespuestasSerializer(serializers.ModelSerializer):
         model = Respuestas
         fields = ('descripcion', 'id', 'preguntaR','preguntas', 'organizacionR', 'organizaciones')
 
-    def create(self, validated_data):
-        return Respuestas(**validated_data)
+    #def create(self, validated_data):
+     #   return Respuestas(**validated_data)
 
 """class OrganizacionSerializer(serializers.ModelSerializer):
     # uuid = serializers.CharField(read_only=True)
