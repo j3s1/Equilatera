@@ -6,7 +6,7 @@ from encuesta.views import RespuestasViewSet, OrganizacionesViewSet, PreguntasVi
 router = routers.SimpleRouter()
 router.register(r'preguntas', PreguntasViewSet)
 router.register(r'respuestas', RespuestasViewSet)
-router.register(r'organizacion', OrganizacionesViewSet)
+router.register(r'organizaciones', OrganizacionesViewSet)
 
 urlpatterns = [
     path('', views.index, name='index'),
